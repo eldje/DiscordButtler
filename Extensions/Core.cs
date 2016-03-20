@@ -21,7 +21,7 @@ namespace DiscordButtler.Extensions
 
         public static string Help()
         {
-            return "Works!";
+            return "Works! Hi from eldje";
         }
     }
 }
