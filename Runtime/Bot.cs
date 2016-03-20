@@ -56,7 +56,10 @@ namespace DiscordButtler.Runtime
                 if (!e.Message.Text.StartsWith("!"))
                     return;
 
-                var response = Api.ParseCommand(e.Message.Text.Replace("!", ""));
+                var commandString = e.Message.Text.Split(' ');
+                commandString[0] = commandString[0].Replace("!", "");
+
+                var response = Api.ParseCommand(commandString);
                 await e.Channel.SendMessage(response);
             };
         }

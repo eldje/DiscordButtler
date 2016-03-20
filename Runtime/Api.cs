@@ -12,18 +12,18 @@ namespace DiscordButtler.Runtime
     {
         public static List<Command> Commands { get; set; }= new List<Command>();
 
-        public static string ParseCommand(string imperative)
+        public static string ParseCommand(string[] commandParams)
         {
             try
             {
-                var command = Commands.Find(x => x.CommandString.ToLower() == imperative.ToLower());
-
-                if (command == null)
+                var namespaces = Commands.FindAll(x => string.Equals(x.CommandDomain, commandParams[0], StringComparison.CurrentCultureIgnoreCase));
+                if (namespaces.Count == 0)
                 {
                     return "Sorry, i could'nt understand!";
                 }
 
-                return command.Call.Method.Invoke(new object(), new object[] {}).ToString();
+                var command = namespaces.Find(x => string.Equals(x.CommandString, commandParams[1], StringComparison.CurrentCultureIgnoreCase));
+                return command?.Call.Method.Invoke(new object(), new object[] {}).ToString() ?? "Sorry, i could'nt understand!";
             }
             catch (Exception ex)
             {
