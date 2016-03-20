@@ -7,7 +7,7 @@ using Discord.Commands.Permissions.Visibility;
 
 namespace DiscordButtler.Extensions
 {
-    public interface IExtension
+    public  interface IExtension
     {
         void Setup();
         string CommandDomain { get; set; }

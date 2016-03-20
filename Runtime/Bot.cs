@@ -17,8 +17,8 @@ namespace DiscordButtler.Runtime
 
         public static async Task<bool> Run()
         {
-            BotCredentials.Email = "mathiasstorm1@gmail.com";
-            BotCredentials.Password = "AF362GL!";
+            HookEvents();
+            ExtensionLoader.LoadExtensions();
 
             client.ExecuteAndWait(async () =>
             {
@@ -34,5 +34,16 @@ namespace DiscordButtler.Runtime
             Logger.Write(LogType.Info, ModuleType.Core, $"Username: {client.CurrentUser.Name}");
         }
 
+        private static void HookEvents()
+        {
+            client.MessageReceived += async (s, e) =>
+            {
+                if (!e.Message.Text.StartsWith("!"))
+                    return;
+
+                var response = Api.ParseCommand(e.Message.Text.Replace("!", ""));
+                await e.Channel.SendMessage(response);
+            };
+        }
     }
 }

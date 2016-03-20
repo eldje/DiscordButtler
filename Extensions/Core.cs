@@ -1,4 +1,5 @@
-﻿using DiscordButtler.Runtime;
+﻿using System;
+using DiscordButtler.Runtime;
 
 namespace DiscordButtler.Extensions
 {
@@ -8,8 +9,19 @@ namespace DiscordButtler.Extensions
 
         public void Setup()
         {
-            Api.Commands.Add(new Command());
+            Api.Commands.Add(new Command
+            {
+                CommandDomain = CommandDomain,
+                CommandString = "help",
+                CommandDescription = "Shows a Description of all Commands",
+                Call = new Func<string>(Help)
+            });
         }
 
+
+        public static string Help()
+        {
+            return "Works!";
+        }
     }
 }
