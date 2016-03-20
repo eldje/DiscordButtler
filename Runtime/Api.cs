@@ -23,7 +23,13 @@ namespace DiscordButtler.Runtime
                 }
 
                 var command = namespaces.Find(x => string.Equals(x.CommandString, commandParams[1], StringComparison.CurrentCultureIgnoreCase));
-                return command?.Call.Method.Invoke(new object(), new object[] {}).ToString() ?? "Sorry, i could'nt understand!";
+
+
+                List<string> args = new List<string>();
+                for(int i = 2; i < commandParams.Length; i++)
+                    args.Add(commandParams[i]);
+                
+                return command?.Call.Method.Invoke(new object(), args.ToArray()).ToString() ?? "Sorry, i could'nt understand!";
             }
             catch (Exception ex)
             {
