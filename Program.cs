@@ -13,7 +13,15 @@ namespace DiscordButtler
     {
         static void Main(string[] args)
         {
-            Bot.Run().WaitAndUnwrapException();
+            try
+            {
+                Bot.Run().WaitAndUnwrapException();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            Console.Read();
         }
     }
 }
