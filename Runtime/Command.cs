@@ -8,9 +8,10 @@ namespace DiscordButtler.Runtime
 {
     public class Command
     {
-        public string CommandDomain { get; set; }
-        public string CommandString { get; set; }
-        public string CommandDescription { get; set; }
+        public string CommandDomain { get; set; } = "";
+        public string CommandString { get; set; } = "";
+        public string CommandDescription { get; set; } = "";
+        public int CommandParams { get; set; } = 0;
         public Delegate Call { get; set; }
     }
 }
