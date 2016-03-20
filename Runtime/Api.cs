@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace DiscordButtler.Runtime
 {
-    public class AuthCredentials
+    public static class Api
     {
-        public string Email { get; set; }
-        public string Password { get; set; }
+        public static List<Command> Commands { get; set; }= new List<Command>();  
     }
 }
