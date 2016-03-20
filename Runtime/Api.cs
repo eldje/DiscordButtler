@@ -14,8 +14,21 @@ namespace DiscordButtler.Runtime
 
         public static string ParseCommand(string imperative)
         {
-            var command = Commands.Find(x => x.CommandString == imperative);
-            return command.Call.Method?.Invoke(new object(), new object[] {}).ToString();
+            try
+            {
+                var command = Commands.Find(x => x.CommandString == imperative);
+
+                if (command == null)
+                {
+                    return "Sorry, i could'nt understand!";
+                }
+
+                return command.Call.Method.Invoke(new object(), new object[] {}).ToString();
+            }
+            catch (Exception ex)
+            {
+                return ex.ToString();
+            }
         }
     }
 }
