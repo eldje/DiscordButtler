@@ -18,6 +18,7 @@ At this stage the bot is very Alpha and you have to compile it on your own and a
 ```
 - Adjust it to the credentials of your bot account
 - Done :)
+
 ### Created with
 * [Discord.Net](https://github.com/RogueException/Discord.Net)
 * [Newtonsonft.Json](http://www.newtonsoft.com/json)
