@@ -16,7 +16,7 @@ namespace DiscordButtler.Runtime
         {
             try
             {
-                var command = Commands.Find(x => x.CommandString == imperative);
+                var command = Commands.Find(x => x.CommandString.ToLower() == imperative.ToLower());
 
                 if (command == null)
                 {

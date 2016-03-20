@@ -79,6 +79,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\Bob.cs" />
     <Compile Include="Runtime\Api.cs" />
     <Compile Include="Runtime\Command.cs" />
     <Compile Include="Extensions\Core.cs" />
