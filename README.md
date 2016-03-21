@@ -2,6 +2,12 @@
 
 Discordbuttler is an extensional Discord Bot written in C#. It utilizes a very powerful and leightweight way of adding Extensions to the Bot with absolutely no need to learn anything. 
 
+### Features
+- [x] Dynamic loading of Extensions
+- [ ] Fully support parameters
+- [ ] Optional command domain system(easy grouping of commands)
+- [ ] Option to save Data in DB/as JSON
+
 ### Requirements
 * .Net Framework 4.5.2
 * A brain
